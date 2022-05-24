@@ -31,34 +31,34 @@ function Login() {
       })
       .then((data) => {
         setToken(data.token);
-          navigate(data.role === "hall" ? "/hall" : "/kitchen");       
+        navigate(data.role === "hall" ? "/hall" : "/kitchen");
       })
       .catch((error) => console.log(error));
   };
 
   return (
     <div className="DivForm">
-        <Logo />
-    <form>
-      <Input
-        type="email"
-        value={email}
-        placeholder="E-MAIL"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <Input
-        type="password"
-        value={password}
-        placeholder="SENHA"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <Button children="LOGAR" type="button" onClick={handleOnClick} />
-      <Link to="/register" className="Hiperlink">
-        Cadastre-se
-      </Link>
-      {message && <Message type="error" msg={message} />}
-      {error && <Message type="error" msg={error} />}
-    </form>
+      <Logo />
+      <form>
+        <Input
+          type="email"
+          value={email}
+          placeholder="E-MAIL"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Input
+          type="password"
+          value={password}
+          placeholder="SENHA"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button children="LOGAR" type="button" onClick={handleOnClick} />
+        <Link to="/register" className="Hiperlink">
+          Cadastre-se
+        </Link>
+        {message && <Message type="error" msg={message} />}
+        {error && <Message type="error" msg={error} />}
+      </form>
     </div>
   );
 }
